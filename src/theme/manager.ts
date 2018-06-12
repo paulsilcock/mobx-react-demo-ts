@@ -1,11 +1,14 @@
 import { createMuiTheme, PaletteType, Theme } from '@material-ui/core';
-import { blueGrey } from '@material-ui/core/colors';
 import { PaletteOptions } from '@material-ui/core/styles/createPalette';
 import { action, computed, observable } from 'mobx';
 
 
 const basePalette: PaletteOptions = {
-    primary: blueGrey,
+    primary: {
+        dark: "#101419",
+        light: "#263238",
+        main: "#1b2228"
+    },
     secondary: {
         dark: "#c94f7c",
         light: "#ffb2dd",
@@ -19,15 +22,22 @@ class ThemeSwitcher {
 
     @computed
     public get theme(): Theme {
-        return createMuiTheme({
+        const theme = createMuiTheme({
             palette: {...basePalette, type: this.themeType},
             typography: {
                 display1: {
-                    fontFamily: "Roboto Condensed"
+                    fontFamily: "Roboto Slab"
                 },
-                fontFamily: "Roboto"
+                fontFamily: "Roboto Condensed"
             }
         });
+        
+        if (this.themeType === "dark") {
+            theme.palette.background.default = theme.palette.primary.main;
+            theme.palette.background.paper = theme.palette.primary.dark;
+        }
+
+        return theme;
     };
 
     constructor(type: PaletteType) {

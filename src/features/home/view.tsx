@@ -1,7 +1,8 @@
 import { createStyles, Theme, Typography, withStyles, WithStyles } from '@material-ui/core';
 import { observer } from 'mobx-react';
 import * as React from 'react';
-import HomeStore from '../store/home';
+import StackGrid from '../../components/stackgrid';
+import HomePageState from './state';
 
 
 const styling = (theme: Theme) => createStyles({
@@ -14,23 +15,24 @@ const styling = (theme: Theme) => createStyles({
 
 
 interface IHomeProps extends WithStyles<typeof styling> {
-    vm: HomeStore
+    state: HomePageState
 }
 
 @observer
-class Homepage extends React.Component<IHomeProps> {
+class HomePage extends React.Component<IHomeProps> {
     constructor(props: IHomeProps) {
         super(props);
     }
 
     public render() {
-        const { vm, classes } = this.props;
+        const { state, classes } = this.props;
         return (
             <main className={classes.content}>
-                <Typography variant={"display1"}>{vm.title}</Typography>
+                <Typography variant={"display1"}>{state.title}</Typography>
+                <StackGrid />
             </main>
         );
     }
 }
 
-export default withStyles(styling)<IHomeProps>(Homepage);
+export default withStyles(styling)<IHomeProps>(HomePage);

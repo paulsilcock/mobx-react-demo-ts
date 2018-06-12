@@ -8,6 +8,8 @@ import { ColorLens, Home } from '@material-ui/icons';
 
 const styling = (theme: Theme) => createStyles({
     drawerPaper: {
+        backgroundColor: theme.palette.background.paper,
+        height: "100%",
         position: 'relative',
         width: 240
     },

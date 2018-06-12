@@ -1,7 +1,7 @@
 import { observable } from 'mobx';
 
 
-class HomeStore {
+class HomePageState {
     @observable
     public title: string;
 
@@ -10,4 +10,4 @@ class HomeStore {
     }
 }
 
-export default HomeStore;
+export default HomePageState;

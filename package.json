@@ -15,6 +15,7 @@
     "react-scripts-ts": "2.16.0",
     "typeface-roboto": "0.0.54",
     "typeface-roboto-condensed": "0.0.54",
+    "typeface-roboto-slab": "0.0.54",
     "typeface-titillium-web": "0.0.54"
   },
   "scripts": {

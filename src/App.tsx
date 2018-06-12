@@ -1,17 +1,17 @@
 import { createStyles, MuiThemeProvider, Theme, withStyles, WithStyles } from '@material-ui/core/styles';
 import { observer } from 'mobx-react';
 import * as React from 'react';
-import 'typeface-roboto';
 import 'typeface-roboto-condensed';
+import 'typeface-roboto-slab';
 import SideBar from './components/sidebar';
-import Homepage from './pages/home';
-import HomeStore from './store/home';
+import HomePageState from './features/home/state';
+import HomePage from './features/home/view';
 import ThemeSwitcher from './theme/manager';
 
 
-const themeSwitcher = new ThemeSwitcher("dark");
+const themeSwitcher = new ThemeSwitcher("light");
 const AppSideBar = observer(SideBar);
-const homeStore = new HomeStore("Hello!");
+const homePageState = new HomePageState("Hello!");
 
 const styling = (theme: Theme) => createStyles({
   appArea: {
@@ -36,7 +36,7 @@ class App extends React.Component<WithStyles<typeof styling>> {
         <div className={classes.root}>
           <div className={classes.appArea}>
             <AppSideBar onThemeChange={themeSwitcher.toggleTheme} />
-            <Homepage vm={homeStore} />
+            <HomePage state={homePageState} />
           </div>
         </div>
       </MuiThemeProvider>
