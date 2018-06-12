@@ -1,0 +1,31 @@
+{
+  "name": "mobx-react-demo-ts",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^1.2.1",
+    "@material-ui/icons": "^1.1.0",
+    "mobx": "^5.0.2",
+    "mobx-react": "^5.2.3",
+    "mobx-react-router": "^4.0.4",
+    "mobx-state-router": "^3.1.2",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-router": "^4.3.1",
+    "react-scripts-ts": "2.16.0"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  },
+  "devDependencies": {
+    "@types/history": "^4.6.2",
+    "@types/jest": "^23.0.0",
+    "@types/node": "^10.3.2",
+    "@types/react": "^16.3.17",
+    "@types/react-dom": "^16.0.6",
+    "typescript": "^2.9.1"
+  }
+}
