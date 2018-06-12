@@ -20,7 +20,13 @@ class ThemeSwitcher {
     @computed
     public get theme(): Theme {
         return createMuiTheme({
-            palette: {...basePalette, type: this.themeType}
+            palette: {...basePalette, type: this.themeType},
+            typography: {
+                display1: {
+                    fontFamily: "Roboto Condensed"
+                },
+                fontFamily: "Roboto"
+            }
         });
     };
 

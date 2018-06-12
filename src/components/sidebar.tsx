@@ -3,7 +3,7 @@ import * as React from 'react';
 import { List, ListItemIcon, ListItemText, MenuItem, withStyles } from '@material-ui/core';
 import Drawer from '@material-ui/core/Drawer';
 import { createStyles, Theme, WithStyles } from '@material-ui/core/styles';
-import { Colorize, Home } from '@material-ui/icons';
+import { ColorLens, Home } from '@material-ui/icons';
 
 
 const styling = (theme: Theme) => createStyles({
@@ -18,7 +18,7 @@ const styling = (theme: Theme) => createStyles({
 
 
 interface ISideBarProps extends WithStyles<typeof styling> {
-    onThemeChange?: () => void
+    onThemeChange: () => void
 }
 
 const SideBar = withStyles(styling)(({ onThemeChange, classes }: ISideBarProps) => {
@@ -31,12 +31,15 @@ const SideBar = withStyles(styling)(({ onThemeChange, classes }: ISideBarProps) 
                     </ListItemIcon>
                     <ListItemText>
                         Home
-                        </ListItemText>
+                    </ListItemText>
                 </MenuItem>
                 <MenuItem button={true} onClick={onThemeChange}>
                     <ListItemIcon>
-                        <Colorize className={classes.icon} />
+                        <ColorLens className={classes.icon} />
                     </ListItemIcon>
+                    <ListItemText>
+                        Toggle theme
+                    </ListItemText>
                 </MenuItem>
             </List>
         </Drawer>

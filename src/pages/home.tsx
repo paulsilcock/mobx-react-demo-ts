@@ -6,8 +6,9 @@ import HomeStore from '../store/home';
 
 const styling = (theme: Theme) => createStyles({
     content: {
-        color: theme.palette.primary.main,
-        flexGrow: 1
+        backgroundColor: theme.palette.background.default,
+        flexGrow: 1,
+        padding: "1em"
     }
 });
 
@@ -26,7 +27,7 @@ class Homepage extends React.Component<IHomeProps> {
         const { vm, classes } = this.props;
         return (
             <main className={classes.content}>
-                <Typography>{vm.title}</Typography>
+                <Typography variant={"display1"}>{vm.title}</Typography>
             </main>
         );
     }
