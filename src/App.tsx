@@ -36,6 +36,7 @@ class App extends React.Component<WithStyles<typeof styling>> {
         <div className={classes.root}>
           <div className={classes.appArea}>
             <AppSideBar onThemeChange={themeSwitcher.toggleTheme} />
+            <div style={{width: "240px"}} />
             <HomePage state={homePageState} />
           </div>
         </div>

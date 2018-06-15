@@ -10,7 +10,7 @@ const styling = (theme: Theme) => createStyles({
     drawerPaper: {
         backgroundColor: theme.palette.background.paper,
         height: "100%",
-        position: 'relative',
+        position: 'fixed',
         width: 240
     },
     icon: {
