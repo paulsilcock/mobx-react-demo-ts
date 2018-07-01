@@ -1,15 +1,17 @@
 import { createStyles, Theme, Typography, withStyles, WithStyles } from '@material-ui/core';
 import { observer } from 'mobx-react';
 import * as React from 'react';
-import StackGrid from '../../components/stackgrid';
 import HomePageState from './state';
+import ItemsGrid from './components/grid';
 
 
 const styling = (theme: Theme) => createStyles({
     content: {
-        backgroundColor: theme.palette.background.default,
-        flexGrow: 1,
-        padding: "1em"
+        height: "100%",
+        width: "100%"
+    },
+    title: {
+        paddingBottom: theme.spacing.unit * 3
     }
 });
 
@@ -25,14 +27,14 @@ class HomePage extends React.Component<IHomeProps> {
     }
 
     public render() {
-        const { state, classes } = this.props;
+        const { classes, state } = this.props;
         return (
-            <main className={classes.content}>
-                <Typography variant={"display1"}>{state.title}</Typography>
-                <StackGrid />
-            </main>
+            <div className={classes.content} >
+                <Typography variant={"display1"} className={classes.title}>Items page</Typography>
+                <ItemsGrid items={state.items} />
+            </div>
         );
     }
 }
 
-export default withStyles(styling)<IHomeProps>(HomePage);
+export default withStyles(styling)(HomePage);

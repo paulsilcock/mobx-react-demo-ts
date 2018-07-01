@@ -6,8 +6,8 @@ import { action, computed, observable } from 'mobx';
 const basePalette: PaletteOptions = {
     primary: {
         dark: "#151d21",
-        light: "#2b3942",
-        main: "#263238"
+        light: "#333539",
+        main: "#2a2b2f"
     },
     secondary: {
         dark: "#c94f7c",
@@ -32,10 +32,10 @@ class ThemeSwitcher {
             }
         });
         
-        // if (this.themeType === "dark") {
-        //     theme.palette.background.default = theme.palette.primary.main;
-        //     theme.palette.background.paper = theme.palette.primary.dark;
-        // }
+        if (this.themeType === "dark") {
+            theme.palette.background.default = theme.palette.primary.main;
+            theme.palette.background.paper = theme.palette.primary.light;
+        }
 
         return theme;
     };

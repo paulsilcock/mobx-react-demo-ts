@@ -7,23 +7,29 @@ import SideBar from './components/sidebar';
 import HomePageState from './features/home/state';
 import HomePage from './features/home/view';
 import ThemeSwitcher from './theme/manager';
+import { CssBaseline } from '@material-ui/core';
+import HeaderBar from './components/headerbar';
 
 
 const themeSwitcher = new ThemeSwitcher("light");
 const AppSideBar = observer(SideBar);
-const homePageState = new HomePageState("Hello!");
+const homePageState = new HomePageState();
 
 const styling = (theme: Theme) => createStyles({
   appArea: {
     display: 'flex',
     flexDirection: 'row',
-    height: '100%'
+    height: '100%',
+    position: 'relative',
+    top: theme.mixins.toolbar.minHeight,
+    width: '100%'
+  },
+  feature: {
+    padding: theme.spacing.unit * 3,
+    width: "100%"
   },
   root: {
-    background: theme.palette.background.default,
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%',
+    height: "100%"
   }
 });
 
@@ -33,11 +39,14 @@ class App extends React.Component<WithStyles<typeof styling>> {
     const { classes } = this.props;
     return (
       <MuiThemeProvider theme={themeSwitcher.theme}>
+        <CssBaseline />
         <div className={classes.root}>
+          <HeaderBar />
           <div className={classes.appArea}>
             <AppSideBar onThemeChange={themeSwitcher.toggleTheme} />
-            <div style={{width: "240px"}} />
-            <HomePage state={homePageState} />
+            <div className={classes.feature}>
+              <HomePage state={homePageState} />
+            </div>
           </div>
         </div>
       </MuiThemeProvider>
@@ -45,4 +54,4 @@ class App extends React.Component<WithStyles<typeof styling>> {
   }
 }
 
-export default withStyles(styling)<any>(App);
+export default withStyles(styling)(App);

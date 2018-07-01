@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { List, ListItemIcon, ListItemText, MenuItem, withStyles } from '@material-ui/core';
+import { List, ListItemIcon, MenuItem, withStyles } from '@material-ui/core';
 import Drawer from '@material-ui/core/Drawer';
 import { createStyles, Theme, WithStyles } from '@material-ui/core/styles';
 import { ColorLens, Home } from '@material-ui/icons';
@@ -11,10 +11,17 @@ const styling = (theme: Theme) => createStyles({
         backgroundColor: theme.palette.background.paper,
         height: "100%",
         position: 'fixed',
-        width: 240
+        top: theme.mixins.toolbar.minHeight,
+        width: theme.spacing.unit * 7
     },
     icon: {
-        color: theme.palette.secondary.dark
+        color: theme.palette.secondary.light
+    },
+    wrapper: {
+        flex: '1 0 auto',
+        height: '100%',
+        position: 'relative',
+        width: theme.spacing.unit * 7
     }
 });
 
@@ -25,26 +32,22 @@ interface ISideBarProps extends WithStyles<typeof styling> {
 
 const SideBar = withStyles(styling)(({ onThemeChange, classes }: ISideBarProps) => {
     return (
-        <Drawer variant={"permanent"} classes={{ paper: classes.drawerPaper }}>
-            <List>
-                <MenuItem button={true}>
-                    <ListItemIcon>
-                        <Home className={classes.icon} />
-                    </ListItemIcon>
-                    <ListItemText>
-                        Home
-                    </ListItemText>
-                </MenuItem>
-                <MenuItem button={true} onClick={onThemeChange}>
-                    <ListItemIcon>
-                        <ColorLens className={classes.icon} />
-                    </ListItemIcon>
-                    <ListItemText>
-                        Toggle theme
-                    </ListItemText>
-                </MenuItem>
-            </List>
-        </Drawer>
+        <div className={classes.wrapper}>
+            <Drawer variant={"permanent"} classes={{ paper: classes.drawerPaper }}>
+                <List>
+                    <MenuItem button={true}>
+                        <ListItemIcon>
+                            <Home className={classes.icon} />
+                        </ListItemIcon>
+                    </MenuItem>
+                    <MenuItem button={true} onClick={onThemeChange}>
+                        <ListItemIcon>
+                            <ColorLens className={classes.icon} />
+                        </ListItemIcon>
+                    </MenuItem>
+                </List>
+            </Drawer>
+        </div>
     );
 });
 
