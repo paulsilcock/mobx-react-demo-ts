@@ -8,7 +8,8 @@ import { ColorLens, Home } from '@material-ui/icons';
 
 const styling = (theme: Theme) => createStyles({
     drawerPaper: {
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: theme.palette.primary.light,
+        borderRight: 'none',
         height: "100%",
         position: 'fixed',
         top: theme.mixins.toolbar.minHeight,

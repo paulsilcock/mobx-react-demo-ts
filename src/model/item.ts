@@ -6,6 +6,7 @@ export default class Item {
         public lastViewed: Date,
         public statusOk: boolean,
         public overview: number[],
-        public favourite: boolean
+        public favourite: boolean,
+        public things: number
     ) { }
 }

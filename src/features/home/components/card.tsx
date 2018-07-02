@@ -51,20 +51,27 @@ const ItemCard = observer((props: ItemCardProps) => {
                 title={item.title}
                 subheader={item.description}
             />
-            <CardContent>
-                <Typography variant="caption">
-                    Last viewed
-                </Typography>
-                <Typography variant="subheading" color="textSecondary">
-                    {item.lastViewed.toDateString()}
-                </Typography>
+            <CardContent style={{ display: "flex", justifyContent: "space-between" }}>
+                <div>
+                    <Typography variant="caption">
+                        Last viewed
+                    </Typography>
+                    <Typography variant="subheading" color="textSecondary">
+                        {item.lastViewed.toDateString()}
+                    </Typography>
+                </div>
+                <div>
+                    <Typography variant="headline">{Math.round(item.things / 100) / 10}k</Typography>
+                </div>
             </CardContent>
-            <CardContent style={{ flexGrow: 1 }} >
-                <BarChart width={240} height={100} data={item.overview} />
+            <CardContent style={{ flexGrow: 1, display: "flex" }} >
+                <Button style={{ flex: 1, height: "100%" }}>
+                    <BarChart width={240} height={100} data={item.overview} />
+                </Button>
             </CardContent>
             <CardActions className={classes.footer}>
                 <IconButton>
-                    {item.favourite ? <Star /> :  <StarBorder />}
+                    {item.favourite ? <Star /> : <StarBorder />}
                 </IconButton>
                 <Button size="small" style={{ marginLeft: 'auto' }}>
                     More

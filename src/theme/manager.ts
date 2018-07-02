@@ -5,7 +5,7 @@ import { action, computed, observable } from 'mobx';
 
 const basePalette: PaletteOptions = {
     primary: {
-        dark: "#151d21",
+        dark: "#1f2528",
         light: "#333539",
         main: "#2a2b2f"
     },
