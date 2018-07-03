@@ -29,25 +29,24 @@ const Bar = observer(BarBase);
 
 interface IProps {
     data: number[];
-    width: number;
-    height: number;
 }
 
-const BarChart = ({ width, height, data }: IProps)  => {
+const BarChart = ({ data }: IProps) => {
     const yScale = scaleLinear()
         .domain([0, Math.max(...data)])
-        .rangeRound([height, 0]);
-    const barWidth = Math.floor(width / data.length);
+        .rangeRound([100, 0]);
+    const barWidth = Math.floor(100 / data.length);
 
     return (
-        <svg width={width} height={height} style={{ display: "block", margin: "auto" }}>
+
+        <svg viewBox={"0 0 100 100"} width={100} height={100} preserveAspectRatio="none" style={{ width: "100%" }}>
             {data.map((d, i) =>
                 <Bar
                     key={i}
                     x={i * barWidth}
                     y={yScale(d)}
                     width={barWidth - 1}
-                    height={height - yScale(d)}
+                    height={100 - yScale(d)}
                 />,
             )}
         </svg>

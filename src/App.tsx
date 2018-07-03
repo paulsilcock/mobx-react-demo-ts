@@ -9,6 +9,7 @@ import HomePage from './features/home/view';
 import ThemeSwitcher from './theme/manager';
 import { CssBaseline } from '@material-ui/core';
 import HeaderBar from './components/headerbar';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 
 const themeSwitcher = new ThemeSwitcher("light");
@@ -45,9 +46,13 @@ class App extends React.Component<WithStyles<typeof styling>> {
           <HeaderBar />
           <div className={classes.appArea}>
             <AppSideBar onThemeChange={themeSwitcher.toggleTheme} />
-            <div className={classes.feature}>
-              <HomePage state={homePageState} />
-            </div>
+            <BrowserRouter>
+              <div className={classes.feature}>
+                <Route path="/">
+                  <HomePage state={homePageState} />
+                </Route>
+              </div>
+            </BrowserRouter>
           </div>
         </div>
       </MuiThemeProvider>
