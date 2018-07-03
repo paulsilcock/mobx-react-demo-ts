@@ -66,7 +66,7 @@ const ItemCard = observer((props: ItemCardProps) => {
             </CardContent>
             <CardContent style={{ flexGrow: 1, display: "flex" }} >
                 <Button style={{ flex: 1, height: "100%" }}>
-                    <BarChart width={240} height={100} data={item.overview} />
+                    <BarChart data={item.overview} />
                 </Button>
             </CardContent>
             <CardActions className={classes.footer}>

@@ -14,7 +14,7 @@ interface ItemGridProps extends WithStyles<typeof style> {
 
 const ItemWrapper = observer((props: { key: number, item: Item }) => {
     return (
-        <Grid item={true} xs={12} sm={6} md={4} lg={3} xl={2} style={{ minWidth: 290 }} >
+        <Grid item={true} xs={12} sm={6} md={4} lg={3} xl={2} >
             <ItemCard {...props} />
         </Grid>
     );
