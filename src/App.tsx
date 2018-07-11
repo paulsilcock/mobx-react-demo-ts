@@ -20,16 +20,17 @@ const styling = (theme: Theme) => createStyles({
   appArea: {
     display: 'flex',
     flexDirection: 'row',
-    height: '100%',
-    position: 'relative',
-    top: theme.mixins.toolbar.minHeight,
-    width: '100%'
+    height: '100%'
   },
   feature: {
-    padding: theme.spacing.unit * 3,
-    width: "100%"
+    flex: 1,
+    marginTop: theme.mixins.toolbar.minHeight,
+    overflow: 'auto',
+    padding: theme.spacing.unit * 3
   },
   root: {
+    display: 'flex',
+    flexDirection: 'column',
     height: "100%"
   }
 });

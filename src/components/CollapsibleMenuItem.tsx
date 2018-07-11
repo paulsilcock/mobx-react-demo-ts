@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MenuItem, ListItemIcon, ListItemText, Collapse, List, ButtonBase } from '@material-ui/core';
+import { MenuItem, ListItemIcon, ListItemText, Collapse, List } from '@material-ui/core';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
@@ -30,18 +30,16 @@ class CollapsibleMenuItem extends React.PureComponent<Props, State> {
 
         return (
             <React.Fragment>
-                <ButtonBase onClick={this.onClick} style={{ justifyContent: "flex-start" }}>
-                    <MenuItem>
-                        {
-                            this.props.menuIcon &&
-                            <ListItemIcon>
-                                {this.props.menuIcon}
-                            </ListItemIcon>
-                        }
-                        <ListItemText primary={this.props.text} />
-                        {this.state.open ? <ExpandLess /> : <ExpandMore />}
-                    </MenuItem>
-                </ButtonBase>
+                <MenuItem button={true} onClick={this.onClick}>
+                    {
+                        this.props.menuIcon &&
+                        <ListItemIcon>
+                            {this.props.menuIcon}
+                        </ListItemIcon>
+                    }
+                    <ListItemText primary={this.props.text} />
+                    {this.state.open ? <ExpandLess /> : <ExpandMore />}
+                </MenuItem>
                 <Collapse in={this.state.open} timeout="auto" unmountOnExit={true}>
                     <List disablePadding={true} style={{ paddingLeft: padding }}>
                         {this.props.children}

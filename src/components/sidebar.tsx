@@ -13,12 +13,12 @@ const styling = (theme: Theme) => createStyles({
         borderRight: 'none',
         height: "100%",
         position: 'fixed',
-        top: theme.mixins.toolbar.minHeight,
         width: theme.spacing.unit * 27
     },
     icon: {
         color: theme.palette.secondary.light
     },
+    toolbar: theme.mixins.toolbar,
     wrapper: {
         flex: '1 0 auto',
         height: '100%',
@@ -34,8 +34,9 @@ interface ISideBarProps extends WithStyles<typeof styling> {
 
 const SideBar = withStyles(styling)(({ onThemeChange, classes }: ISideBarProps) => {
     return (
-        <div className={classes.wrapper}>
+        <div className={classes.drawerPaper} style={{ position: 'relative'}}>
             <Drawer variant={"permanent"} classes={{ paper: classes.drawerPaper }}>
+                <div className={classes.toolbar} />
                 <List>
                     <CollapsibleMenuItem
                         text="Items"

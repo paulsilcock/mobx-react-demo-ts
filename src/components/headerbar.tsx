@@ -8,7 +8,7 @@ const style = (theme: Theme) => createStyles({
         zIndex: theme.zIndex.drawer + 1
     },
     menuButton: {
-        marginLeft: -20,
+        marginLeft: -12,
         marginRight: 20
     }
 });
