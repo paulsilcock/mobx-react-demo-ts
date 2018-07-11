@@ -12,7 +12,7 @@ import HeaderBar from './components/headerbar';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 
-const themeSwitcher = new ThemeSwitcher("light");
+const themeSwitcher = new ThemeSwitcher("dark");
 const AppSideBar = observer(SideBar);
 const homePageState = new HomePageState();
 

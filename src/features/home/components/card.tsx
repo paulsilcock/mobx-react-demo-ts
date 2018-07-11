@@ -13,8 +13,14 @@ const style = (theme: Theme) => createStyles({
         flexDirection: 'column',
         height: 320
     },
+    cardHeader: {
+        // backgroundColor: green.A400
+    },
+    cardHeaderError: {
+        // backgroundColor: theme.palette.secondary.main
+    },
     errorIcon: {
-        backgroundColor: theme.palette.secondary.light,
+        backgroundColor: theme.palette.secondary.main,
         color: theme.palette.background.default
     },
     footer: {
@@ -22,7 +28,7 @@ const style = (theme: Theme) => createStyles({
         paddingBottom: theme.spacing.unit * 2
     },
     icon: {
-        backgroundColor: green.A200,
+        backgroundColor: green.A400,
         color: theme.palette.background.default
     }
 });
@@ -35,7 +41,7 @@ const ItemCard = observer((props: ItemCardProps) => {
     const { classes, item } = props;
     return (
         <Card className={classes.card}>
-            <CardHeader
+            <CardHeader className={item.statusOk ? classes.cardHeader : classes.cardHeaderError }
                 avatar={
                     <Avatar className={item.statusOk ? classes.icon : classes.errorIcon}>
                         {

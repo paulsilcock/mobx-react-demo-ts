@@ -18,7 +18,7 @@ const basePalette: PaletteOptions = {
 
 class ThemeSwitcher {
     @observable
-    public themeType: PaletteType = "light";
+    public themeType: PaletteType = "dark";
 
     @computed
     public get theme(): Theme {
