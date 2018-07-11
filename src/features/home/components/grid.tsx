@@ -14,7 +14,7 @@ interface ItemGridProps extends WithStyles<typeof style> {
 
 const ItemWrapper = observer((props: { key: number, item: Item }) => {
     return (
-        <Grid item={true} xs={12} sm={6} md={4} lg={3} xl={2} style={{flex: '0 1 auto'}} >
+        <Grid item={true} xs={12} sm={6} md={4} lg={3} xl={2} >
             <ItemCard {...props} />
         </Grid>
     );
@@ -23,7 +23,7 @@ const ItemWrapper = observer((props: { key: number, item: Item }) => {
 const ItemGrid = observer((props: ItemGridProps) => {
     const { items } = props;
     return (
-        <Grid container={true} spacing={24} justify={"flex-start"}>
+        <Grid container={true} spacing={24} >
             {items.map((item, i) => <ItemWrapper key={i} item={item} />)}
         </Grid>
     );

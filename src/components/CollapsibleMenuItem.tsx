@@ -26,11 +26,11 @@ class CollapsibleMenuItem extends React.PureComponent<Props, State> {
     }
 
     public render() {
-        const padding = 12;
+        const padding = 16;
 
         return (
             <React.Fragment>
-                <MenuItem button={true} onClick={this.onClick}>
+                <MenuItem button={true} onClick={this.onClick} style={{ paddingLeft: padding * (this.props.parentDepth || 1) }}>
                     {
                         this.props.menuIcon &&
                         <ListItemIcon>
@@ -41,8 +41,19 @@ class CollapsibleMenuItem extends React.PureComponent<Props, State> {
                     {this.state.open ? <ExpandLess /> : <ExpandMore />}
                 </MenuItem>
                 <Collapse in={this.state.open} timeout="auto" unmountOnExit={true}>
-                    <List disablePadding={true} style={{ paddingLeft: padding }}>
-                        {this.props.children}
+                    <List disablePadding={true} >
+                        {
+                            React.Children.map(this.props.children, child => {
+                                if (React.isValidElement(child)) {
+                                    return React.cloneElement(child as React.ReactElement<any>, {
+                                        style: {
+                                            paddingLeft: padding * (1 + (this.props.parentDepth || 1))
+                                        }
+                                    });
+                                }
+                                return null;
+                            })
+                        }
                     </List>
                 </Collapse>
             </React.Fragment>

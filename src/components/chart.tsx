@@ -39,7 +39,7 @@ const BarChart = ({ data }: IProps) => {
 
     return (
 
-        <svg viewBox={"0 0 100 100"} width={100} height={100} preserveAspectRatio="none" style={{ width: "100%" }}>
+        <svg viewBox={"0 0 100 100"} width={300} height={100} preserveAspectRatio="none" style={{ width: "100%" }}>
             {data.map((d, i) =>
                 <Bar
                     key={i}

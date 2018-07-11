@@ -9,8 +9,6 @@ import CollapsibleMenuItem from './CollapsibleMenuItem';
 
 const styling = (theme: Theme) => createStyles({
     drawerPaper: {
-        backgroundColor: theme.palette.primary.light,
-        borderRight: 'none',
         height: "100%",
         position: 'fixed',
         width: theme.spacing.unit * 27
@@ -47,7 +45,7 @@ const SideBar = withStyles(styling)(({ onThemeChange, classes }: ISideBarProps) 
                             [0, 1, 2, 3].map((i) => {
                                 if (i === 2) {
                                     return (
-                                        <CollapsibleMenuItem text={`Item: ${i}`} parentDepth={1}>
+                                        <CollapsibleMenuItem text={`Item: ${i}`} parentDepth={2}>
                                             {
                                                 [0, 1, 2].map((j) =>
                                                     <MenuItem key={`${i}-${j}`}>
@@ -71,6 +69,7 @@ const SideBar = withStyles(styling)(({ onThemeChange, classes }: ISideBarProps) 
                         <ListItemIcon>
                             <ColorLens className={classes.icon} />
                         </ListItemIcon>
+                        <ListItemText primary="Toggle theme" />
                     </MenuItem>
                 </List>
             </Drawer>
