@@ -35,7 +35,7 @@ const SideBar = withStyles(styling)(({ onThemeChange, classes }: ISideBarProps) 
         <div className={classes.drawerPaper} style={{ position: 'relative'}}>
             <Drawer variant={"permanent"} classes={{ paper: classes.drawerPaper }}>
                 <div className={classes.toolbar} />
-                <List>
+                <List style={{ width: "100% "}}>
                     <CollapsibleMenuItem
                         text="Items"
                         menuIcon={
@@ -45,7 +45,7 @@ const SideBar = withStyles(styling)(({ onThemeChange, classes }: ISideBarProps) 
                             [0, 1, 2, 3].map((i) => {
                                 if (i === 2) {
                                     return (
-                                        <CollapsibleMenuItem text={`Item: ${i}`} parentDepth={2}>
+                                        <CollapsibleMenuItem text={`Item: ${i}`} key={i}>
                                             {
                                                 [0, 1, 2].map((j) =>
                                                     <MenuItem key={`${i}-${j}`}>
